@@ -23,4 +23,9 @@ public class UserService {
     public List<UserModel> getAllUsers() {
         return userRepository.findAll();
     }
+
+    // Create a method to retrieve a single user based on their id
+    public UserModel getOne(int id) {
+        return userRepository.findById(id).get();
+    }
 }

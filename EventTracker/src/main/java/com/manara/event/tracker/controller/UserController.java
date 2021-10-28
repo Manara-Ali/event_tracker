@@ -26,4 +26,10 @@ public class UserController {
     public List<UserModel> getAllUsers() {
         return userService.getAllUsers();
     }
+
+    // Create a method to retrieve a single user
+    @GetMapping("/user/{id}")
+    public UserModel getUser(@PathVariable int id) {
+        return userService.getOne(id);
+    }
 }
