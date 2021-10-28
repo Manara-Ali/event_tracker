@@ -3,6 +3,7 @@ package com.manara.event.tracker.controller;
 import com.manara.event.tracker.model.UserModel;
 import com.manara.event.tracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +32,17 @@ public class UserController {
     @GetMapping("/user/{id}")
     public UserModel getUser(@PathVariable int id) {
         return userService.getOne(id);
+    }
+
+    // Create a method to update users
+    @PutMapping("/update/user/{id}")
+    public UserModel updateUser(@PathVariable int id, @RequestBody UserModel userModel) {
+        return userService.updateUser(userModel, id);
+    }
+
+    // Create a method to delete a user
+    @DeleteMapping("/delete/user/{id}")
+    public HttpStatus deleteUser(@PathVariable int id) {
+        return userService.deleteOne(id);
     }
 }
