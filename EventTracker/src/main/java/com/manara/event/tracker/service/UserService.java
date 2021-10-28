@@ -5,6 +5,8 @@ import com.manara.event.tracker.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -15,5 +17,10 @@ public class UserService {
     // Create a method to add new users
     public UserModel signup(UserModel userModel) {
         return userRepository.save(userModel);
+    }
+
+    // Create a method to Retrieve all users from our database
+    public List<UserModel> getAllUsers() {
+        return userRepository.findAll();
     }
 }
